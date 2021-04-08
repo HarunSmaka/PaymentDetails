@@ -13,26 +13,22 @@ export class PaymentDetailService {
   formData: PaymentDetail = new PaymentDetail();
   list: PaymentDetail[];
 
+
   postPaymentDetail() {
-    return this.http.post(this.baseURL, this.formData)
+    return this.http.post(this.baseURL, this.formData);
   }
 
   putPaymentDetail() {
-    let te=this.formData.paymentDetailId;
-    console.log(te + ' <- ID');
-    
-    console.log(this.formData);
-    console.log(this.formData.paymentDetailId);
-
-    console.log("test: " + `${this.baseURL}/${this.formData.paymentDetailId}`);
-    
-    
     return this.http.put(`${this.baseURL}/${this.formData.paymentDetailId}`, this.formData);
+  }
+
+  deletePaymentDetail(id: number) {
+    return this.http.delete(`${this.baseURL}/${id}`);
   }
 
   refreshList() {
     this.http.get(this.baseURL)
       .toPromise()
-      .then(res => this.list = res as PaymentDetail[]);    
+      .then(res =>this.list = res as PaymentDetail[]);
   }
 }

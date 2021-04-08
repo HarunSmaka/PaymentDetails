@@ -46,7 +46,7 @@ namespace PaymentAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPaymentDetail(int id, PaymentDetail paymentDetail)
         {
-            if (id != paymentDetail.PaymentDetailID)
+            if (id != paymentDetail.PaymentDetailId)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace PaymentAPI.Controllers
             _context.PaymentDetails.Add(paymentDetail);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPaymentDetail", new { id = paymentDetail.PaymentDetailID }, paymentDetail);
+            return CreatedAtAction("GetPaymentDetail", new { id = paymentDetail.PaymentDetailId }, paymentDetail);
         }
 
         // DELETE: api/PaymentDetail/5
@@ -101,7 +101,7 @@ namespace PaymentAPI.Controllers
 
         private bool PaymentDetailExists(int id)
         {
-            return _context.PaymentDetails.Any(e => e.PaymentDetailID == id);
+            return _context.PaymentDetails.Any(e => e.PaymentDetailId == id);
         }
     }
 }

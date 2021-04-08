@@ -10,7 +10,7 @@ namespace PaymentAPI.Models
     public class PaymentDetail
     {
         [Key]
-        public int PaymentDetailID { get; set; }
+        public int PaymentDetailId { get; set; }
 
         [Column(TypeName ="nvarchar(100)")]
         public string CardOwnerName { get; set; }
